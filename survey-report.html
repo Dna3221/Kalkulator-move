@@ -1,1 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>London House Removals - Move Survey Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#eef2f5;
+color:#202124;
+padding:40px;
+}
+
+.report{
+
+max-width:1200px;
+margin:auto;
+
+background:#fff;
+
+border-radius:18px;
+
+overflow:hidden;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.12);
+
+}
+
+.header{
+
+background:#123629;
+
+color:white;
+
+padding:45px 55px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.logo img{
+
+height:90px;
+
+}
+
+.title{
+
+text-align:right;
+
+}
+
+.title h1{
+
+font-size:40px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+}
+
+.title h3{
+
+margin-top:10px;
+
+font-weight:400;
+
+opacity:.85;
+
+}
+
+.bar{
+
+height:6px;
+
+background:#d2b46d;
+
+}
+
+.section{
+
+padding:40px 55px;
+
+border-bottom:1px solid #ececec;
+
+}
+
+.section-title{
+
+font-size:20px;
+
+font-weight:700;
+
+color:#123629;
+
+margin-bottom:25px;
+
+text-transform:uppercase;
+
+letter-spacing:1px;
+
+}
+
+.grid2{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:30px;
+
+}
+
+.card{
+
+border:1px solid #dfe5ea;
+
+border-radius:12px;
+
+padding:25px;
+
+background:#fafafa;
+
+}
+
+.card h3{
+
+font-size:18px;
+
+margin-bottom:20px;
+
+color:#123629;
+
+}
+
+.row{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:10px 0;
+
+border-bottom:1px solid #ececec;
+
+}
+
+.row:last-child{
+
+border:none;
+
+}
+
+.label{
+
+font-weight:600;
+
+color:#666;
+
+}
+
+.value{
+
+font-weight:700;
+
+text-align:right;
+
+}
+
+.summary{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:20px;
+
+}
+
+.summary-box{
+
+background:#123629;
+
+color:white;
+
+padding:25px;
+
+border-radius:14px;
+
+text-align:center;
+
+}
+
+.summary-box h2{
+
+font-size:34px;
+
+margin-bottom:10px;
+
+}
+
+.summary-box span{
+
+font-size:14px;
+
+opacity:.8;
+
+}
+
+.inventory-room{
+
+margin-bottom:35px;
+
+}
+
+.inventory-room h3{
+
+background:#123629;
+
+color:white;
+
+padding:14px 20px;
+
+border-radius:10px;
+
+font-size:17px;
+
+}
+
+.inventory-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+.inventory-table th{
+
+background:#f4f6f8;
+
+padding:12px;
+
+text-align:left;
+
+}
+
+.inventory-table td{
+
+padding:12px;
+
+border-bottom:1px solid #ececec;
+
+}
+
+.notes{
+
+background:#fff9e9;
+
+border-left:6px solid #d2b46d;
+
+padding:25px;
+
+border-radius:8px;
+
+line-height:1.8;
+
+}
+
+.footer{
+
+background:#123629;
+
+color:white;
+
+padding:35px;
+
+text-align:center;
+
+font-size:14px;
+
+line-height:2;
+
+}
+
+@media print{
+
+body{
+
+background:white;
+
+padding:0;
+
+}
+
+.report{
+
+box-shadow:none;
+
+border-radius:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="report">
+
+<div class="header">
+
+<div class="logo">
+
+<img src="YOUR LOGO URL HERE">
+
+</div>
+
+<div class="title">
+
+<h1>MOVE SURVEY REPORT</h1>
+
+<h3>London House Removals Ltd</h3>
+
+</div>
+
+</div>
+
+<div class="bar"></div>
+<!-- CUSTOMER + SUMMARY -->
+
+<div class="section">
+
+    <div class="grid2">
+
+        <div class="card">
+
+            <h3>Customer Details</h3>
+
+            <div class="row">
+                <span class="label">Customer Name</span>
+                <span class="value">{{customer_name}}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Telephone</span>
+                <span class="value">{{customer_phone}}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Email</span>
+                <span class="value">{{customer_email}}</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Preferred Move Date</span>
+                <span class="value">{{move_date}}</span>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Move Summary</h3>
+
+            <div class="summary">
+
+                <div class="summary-box">
+                    <h2>{{total_m3}}</h2>
+                    <span>Total m³</span>
+                </div>
+
+                <div class="summary-box">
+                    <h2>{{total_ft3}}</h2>
+                    <span>Total ft³</span>
+                </div>
+
+                <div class="summary-box">
+                    <h2>{{total_items}}</h2>
+                    <span>Items</span>
+                </div>
+
+                <div class="summary-box">
+                    <h2>{{total_boxes}}</h2>
+                    <span>Boxes</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- MOVE ADDRESSES -->
+
+<div class="section">
+
+    <div class="section-title">
+        Move Addresses
+    </div>
+
+    <div class="grid2">
+
+        <div class="card">
+
+            <h3>Collection Address</h3>
+
+            <p style="line-height:1.8;font-size:15px;">
+                {{moving_from}}
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Delivery Address</h3>
+
+            <p style="line-height:1.8;font-size:15px;">
+                {{moving_to}}
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PROPERTY DETAILS -->
+
+<div class="section">
+
+    <div class="section-title">
+        Property Details
+    </div>
+
+    <div class="card">
+
+        <div class="row">
+            <span class="label">Collection Floor</span>
+            <span class="value">{{collection_floor}}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Delivery Floor</span>
+            <span class="value">{{delivery_floor}}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Access</span>
+            <span class="value">{{access}}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Parking Distance</span>
+            <span class="value">{{parking_distance}}</span>
+        </div>
+
+        <div class="row">
+            <span class="label">Survey Notes</span>
+            <span class="value">{{survey_notes}}</span>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- VEHICLE -->
+
+<div class="section">
+
+    <div class="grid2">
+
+        <div class="card">
+
+            <h3>Recommended Vehicle</h3>
+
+            <div style="font-size:28px;font-weight:700;color:#123629;margin-top:20px;">
+                {{vehicle}}
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Recommended Crew</h3>
+
+            <div style="font-size:28px;font-weight:700;color:#123629;margin-top:20px;">
+                {{crew}}
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ROOM SUMMARY -->
+
+<div class="section">
+
+    <div class="section-title">
+        Room Summary
+    </div>
+
+    <div class="card">
+
+        <div style="line-height:2;font-size:15px;white-space:pre-line;">
+            {{per_room}}
+        </div>
+
+    </div>
+
+</div>
+
+<!-- INVENTORY -->
+
+<div class="section">
+
+    <div class="section-title">
+        Full Inventory
+    </div>
+
+    <div class="card">
+
+        <div style="line-height:2;font-size:15px;white-space:pre-line;">
+            {{inventory}}
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PACKING MATERIALS -->
+
+<div class="section">
+
+    <div class="section-title">
+        Packing Materials
+    </div>
+
+    <div class="card">
+
+        <div style="line-height:2;font-size:15px;white-space:pre-line;">
+            {{packing_materials}}
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SURVEY NOTES -->
+
+<div class="section">
+
+    <div class="section-title">
+        Survey Notes
+    </div>
+
+    <div class="notes">
+
+        {{survey_notes}}
+
+    </div>
+
+</div>
+
+<!-- IMPORTANT INFORMATION -->
+
+<div class="section">
+
+    <div class="section-title">
+        Important Information
+    </div>
+
+    <div class="card">
+
+        <ul style="padding-left:20px;line-height:2;">
+            <li>This survey report has been generated using the information provided during your survey.</li>
+            <li>Please notify London House Removals if your inventory changes before your moving date.</li>
+            <li>Additional items may affect the final quotation and the duration of the move.</li>
+            <li>This document is not a quotation. It is a survey report prepared for quotation purposes.</li>
+        </ul>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+<b>London House Removals Ltd</b><br><br>
+
+Professional Home & Office Removals<br>
+
+☎ +44 207 118 7778<br>
+
+✉ info@londonhouseremovals.com<br>
+
+🌐 https://londonhouseremovals.com
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
