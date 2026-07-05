@@ -809,7 +809,8 @@ Boxes: ${t.totalBoxes}`;
   inventory,
   json_export
 });
-
+window.open("survey-report.html", "_blank");
+return;
     alert("Estimate sent!");
   } catch (err) {
     alert("Email send error: " + JSON.stringify(err));
