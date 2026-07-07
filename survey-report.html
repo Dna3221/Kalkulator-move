@@ -621,7 +621,44 @@ Professional Home & Office Removals<br>
 </footer>
 
 </div>
+<script>
 
+const survey = JSON.parse(sessionStorage.getItem("survey") || "{}");
+
+function set(id,value){
+    const el=document.getElementById(id);
+    if(el) el.innerHTML=value ?? "";
+}
+
+set("customer_name",survey.customer_name);
+set("customer_phone",survey.customer_phone);
+set("customer_email",survey.customer_email);
+set("move_date",survey.move_date);
+
+set("moving_from",survey.moving_from);
+set("moving_to",survey.moving_to);
+
+set("collection_floor",survey.collection_floor);
+set("delivery_floor",survey.delivery_floor);
+
+set("access",survey.access);
+set("parking_distance",survey.parking_distance);
+
+set("vehicle",survey.vehicle);
+set("crew",survey.crew);
+
+set("total_m3",survey.total_m3);
+set("total_ft3",survey.total_ft3);
+set("total_items",survey.total_items);
+set("total_boxes",survey.total_boxes);
+
+set("per_room",survey.per_room);
+set("inventory",survey.inventory);
+set("packing_materials",survey.packing_materials);
+
+set("survey_notes",survey.survey_notes);
+
+</script>
 </body>
 
 </html>
