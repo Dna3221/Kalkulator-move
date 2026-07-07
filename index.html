@@ -792,7 +792,44 @@ Boxes: ${t.totalBoxes}`;
   const json_export = JSON.stringify(state, null, 2);
 
   try {
-   await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+   const survey = {
+
+  customer_name: document.getElementById("customerName").value,
+  customer_phone: document.getElementById("customerPhone").value,
+  customer_email: document.getElementById("customerEmail").value,
+
+  moving_from: document.getElementById("movingFrom").value,
+  moving_to: document.getElementById("movingTo").value,
+
+  move_date: document.getElementById("moveDate").value,
+
+  collection_floor: state.details.floorFrom,
+  delivery_floor: state.details.floorTo,
+
+  access: state.details.stairs,
+  parking_distance: state.details.parking + " m",
+
+  total_m3: t.totalM3.toFixed(3),
+  total_ft3: t.totalFT3,
+  total_items: t.totalItems,
+  total_boxes: t.totalBoxes,
+
+  vehicle: van_advice,
+  crew: "",
+
+  per_room: per_room,
+  inventory: inventory,
+
+  packing_materials: "",
+
+  survey_notes: state.details.notes
+
+};
+
+sessionStorage.setItem("survey", JSON.stringify(survey));
+ window.open("survey-report.html", "_blank");
+return;   
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
   subject: "Move Estimate Report",
 
   customer_name: document.getElementById("customerName").value,
