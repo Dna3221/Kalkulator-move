@@ -387,22 +387,22 @@ border-radius:0;
             <div class="summary">
 
                 <div class="summary-box">
-                    <h2>{{total_m3}}</h2>
+                    <h2 id="total_m3"></h2>
                     <span>Total m³</span>
                 </div>
 
                 <div class="summary-box">
-                    <h2>{{total_ft3}}</h2>
+                    <h2 id="total_ft3"></h2>
                     <span>Total ft³</span>
                 </div>
 
                 <div class="summary-box">
-                    <h2>{{total_items}}</h2>
+                    <h2 id="total_items"></h2>
                     <span>Items</span>
                 </div>
 
                 <div class="summary-box">
-                    <h2>{{total_boxes}}</h2>
+                    <h2 id="total_boxes"></h2>
                     <span>Boxes</span>
                 </div>
 
@@ -427,9 +427,7 @@ border-radius:0;
 
             <h3>Collection Address</h3>
 
-            <p style="line-height:1.8;font-size:15px;">
-                <div id="moving_from"></div>
-            </p>
+<div id="moving_from" style="line-height:1.8;font-size:15px;"></div>
 
         </div>
 
@@ -437,9 +435,7 @@ border-radius:0;
 
             <h3>Delivery Address</h3>
 
-            <p style="line-height:1.8;font-size:15px;">
-                <div id="moving_to"></div>
-            </p>
+<div id="moving_to" style="line-height:1.8;font-size:15px;"></div>
 
         </div>
 
@@ -459,27 +455,27 @@ border-radius:0;
 
         <div class="row">
             <span class="label">Collection Floor</span>
-            <span class="value">{{collection_floor}}</span>
+            <span class="value" id="collection_floor"></span>
         </div>
 
         <div class="row">
             <span class="label">Delivery Floor</span>
-            <span class="value">{{delivery_floor}}</span>
+            <span class="value" id="delivery_floor"></span>
         </div>
 
         <div class="row">
             <span class="label">Access</span>
-            <span class="value">{{access}}</span>
+            <span class="value" id="access"></span>
         </div>
 
         <div class="row">
             <span class="label">Parking Distance</span>
-            <span class="value">{{parking_distance}}</span>
+            <span class="value" id="parking_distance"></span>
         </div>
 
         <div class="row">
             <span class="label">Survey Notes</span>
-            <span class="value">{{survey_notes}}</span>
+            <span class="value" id="survey_notes"></span>
         </div>
 
     </div>
@@ -497,7 +493,7 @@ border-radius:0;
             <h3>Recommended Vehicle</h3>
 
             <div style="font-size:28px;font-weight:700;color:#123629;margin-top:20px;">
-                {{vehicle}}
+                <div id="vehicle"></div>
             </div>
 
         </div>
@@ -507,7 +503,7 @@ border-radius:0;
             <h3>Recommended Crew</h3>
 
             <div style="font-size:28px;font-weight:700;color:#123629;margin-top:20px;">
-                {{crew}}
+                <div id="crew"></div>
             </div>
 
         </div>
@@ -526,7 +522,7 @@ border-radius:0;
     <div class="card">
 
         <div style="line-height:2;font-size:15px;white-space:pre-line;">
-            {{per_room}}
+            <div id="per_room"></div>
         </div>
 
     </div>
@@ -544,7 +540,7 @@ border-radius:0;
     <div class="card">
 
         <div style="line-height:2;font-size:15px;white-space:pre-line;">
-            {{inventory}}
+            <div id="inventory"></div>
         </div>
 
     </div>
@@ -562,7 +558,7 @@ border-radius:0;
     <div class="card">
 
         <div style="line-height:2;font-size:15px;white-space:pre-line;">
-            {{packing_materials}}
+            <div id="packing_materials"></div>
         </div>
 
     </div>
@@ -579,7 +575,7 @@ border-radius:0;
 
     <div class="notes">
 
-        {{survey_notes}}
+        <div id="survey_notes_text"></div>
 
     </div>
 
@@ -657,6 +653,7 @@ set("inventory",survey.inventory);
 set("packing_materials",survey.packing_materials);
 
 set("survey_notes",survey.survey_notes);
+set("survey_notes_text",survey.survey_notes);
 
 </script>
 </body>
